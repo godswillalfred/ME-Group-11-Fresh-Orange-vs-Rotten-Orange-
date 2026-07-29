@@ -1,0 +1,21 @@
+{
+  "class_names": [
+    "fresh_orange",
+    "rotten_orange"
+  ],
+  "image_size": [
+    224,
+    224
+  ],
+  "threshold": 0.46000000000000024,
+  "minimum_confidence": 0.75,
+  "model_name": "MobileNetV3Small transfer learning",
+  "positive_class": "rotten_orange",
+  "test_metrics": {
+    "accuracy": 0.9982698961937716,
+    "precision": 1.0,
+    "recall": 0.9966666666666667,
+    "f1_score": 0.998330550918197
+  },
+  "dataset_source": "Kaggle: sriramr/fruits-fresh-and-rotten-for-classification"
+}
