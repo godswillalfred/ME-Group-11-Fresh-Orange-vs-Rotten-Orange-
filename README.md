@@ -185,7 +185,7 @@ Table with member who participated.
 | Name | Registration number | GitHub username | Contribution |
 |---|---|---|---|
 | Bassey, God'swill Alfred| 22/EG/ME/1765| godswillalfred |Team leader,project coordination, GitHub repository creation, deployment to streqamlit cloud |
-| Ekpenyong, Abasifreke Francis| 22/EG/ME/1745| abeefree44-hash| download of dataset  |
+| Ekpenyong, Abasifreke Francis| 22/EG/ME/1705| abeefree44-hash| download of dataset  |
 | Daniel, Allwell Sylvanus| 22/EG/ME/1735| allwelldaniel24 | download of images  |
 | Eyo, Gideon Monday| 22/EG/ME/1705| eyogideon2003-cmd | code preview  |
 | Christopher, Ubong Victor | 22/EG/ME/1755| christopherubong15-stack | model evalution  |
