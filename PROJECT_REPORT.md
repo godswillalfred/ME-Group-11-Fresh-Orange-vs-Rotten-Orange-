@@ -11,9 +11,7 @@ and receives the predicted condition with a confidence score. The main
 challenges were variations in lighting, backgrounds, stages of decay and the
 binary model's tendency to classify unsupported images. Data augmentation,
 early stopping, threshold selection and an uncertainty warning reduced these
-problems. Future improvement should use more locally collected orange images
-and a separate validator that rejects images containing no orange.
-
-**Word count:** 137  
+problems. 
+  
 **GitHub repository:**ME-Group-11-Fresh-Orange-vs-Rotten-Orange
 **Deployed application:**https://me-group11-fresh-orange-vs-rotten-orange.streamlit.app/
