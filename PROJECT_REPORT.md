@@ -15,5 +15,5 @@ problems. Future improvement should use more locally collected orange images
 and a separate validator that rejects images containing no orange.
 
 **Word count:** 137  
-**GitHub repository:** ADD_GITHUB_REPOSITORY_URL_HERE  
-**Deployed application:** ADD_STREAMLIT_URL_HERE
+**GitHub repository:**ME-Group-11-Fresh-Orange-vs-Rotten-Orange
+**Deployed application:**https://me-group11-fresh-orange-vs-rotten-orange.streamlit.app/
