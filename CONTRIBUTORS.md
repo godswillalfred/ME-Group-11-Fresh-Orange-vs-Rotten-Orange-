@@ -14,5 +14,5 @@ Complete this table with every member who genuinely participated.
 | Eluwah Divine Ikenna| 22/EG/ME/1745| eluwahdivine | Report preparation |
 | Anietie, Fortune Ekong| 22/EG/ME/1725| anietiefortune03-oss | code preview |
 | Thompson, Paul Sunday| 22/EG/ME/1825| pauldeapostle | code Review  |
-| Francis Edwin Edwin| 22/EG/ME/1775| godswillalfred | code review  |
+| Francis Edwin Edwin| 22/EG/ME/1775| francisedwin784-sketch | code review  |
 
