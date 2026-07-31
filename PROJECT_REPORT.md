@@ -13,7 +13,7 @@ binary model's tendency to classify unsupported images. Data augmentation,
 early stopping, threshold selection and an uncertainty warning reduced these
 problems. 
   
-**GitHub repository:**ME-Group-11-Fresh-Orange-vs-Rotten-Orange
+**GitHub repository:**ME-Group-11-Fresh-Orange-vs-Rotten-Orange/tree/main
 **Deployed application:**https://me-group11-fresh-orange-vs-rotten-orange.streamlit.app/
 
 # Group ME11 Member Details
