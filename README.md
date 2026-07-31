@@ -180,7 +180,7 @@ classes; it does not prove that the uploaded object is an orange.
 
 # Group ME11 Contributors
 
-Complete this table with every member who genuinely participated.
+Table with member who participated.
 
 | Name | Registration number | GitHub username | Contribution |
 |---|---|---|---|
