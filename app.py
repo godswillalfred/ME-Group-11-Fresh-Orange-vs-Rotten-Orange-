@@ -168,7 +168,7 @@ def main() -> None:
                     The experience is designed to feel calm, guided and visually clear from the first click.
                 </p>
             </div>
-            """
+            """,
             unsafe_allow_html=True,
         )
 
