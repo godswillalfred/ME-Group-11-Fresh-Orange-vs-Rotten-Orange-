@@ -174,4 +174,8 @@ Save screenshots showing:
 
 This remains a binary fresh-orange versus rotten-orange classifier, as required
 by the exercise. The confidence score describes preference between those two
-classes; it does not prove that the uploaded object is an orange.
+classes; it does not prove that the uploaded object is an orange. 
+
+## Contributors
+
+
