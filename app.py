@@ -23,6 +23,72 @@ DEFAULT_CONFIG = {
 }
 
 
+def render_custom_css() -> None:
+    """Apply a custom orange-and-white visual theme for the app."""
+    st.markdown(
+        """
+        <style>
+            :root {
+                --accent: #ff7a1a;
+                --accent-dark: #cc4f00;
+                --cream: #fffaf5;
+                --card: rgba(255, 255, 255, 0.92);
+                --text: #4c2800;
+            }
+            .stApp {
+                background: linear-gradient(135deg, #fff7ed 0%, #fffaf5 45%, #ffe7d0 100%);
+            }
+            .hero-card {
+                padding: 1.3rem 1.4rem;
+                border-radius: 24px;
+                background: linear-gradient(120deg, var(--accent) 0%, #ffae4d 100%);
+                color: white;
+                box-shadow: 0 10px 30px rgba(204, 79, 0, 0.2);
+                margin-bottom: 1rem;
+            }
+            .panel {
+                padding: 1rem 1.1rem;
+                border-radius: 18px;
+                background: var(--card);
+                border: 1px solid rgba(255, 122, 26, 0.16);
+                box-shadow: 0 8px 24px rgba(255, 122, 26, 0.08);
+                margin-bottom: 1rem;
+            }
+            .result-card {
+                padding: 1rem 1.1rem;
+                border-radius: 18px;
+                background: linear-gradient(135deg, rgba(255, 122, 26, 0.12), rgba(255, 255, 255, 0.92));
+                border: 1px solid rgba(255, 122, 26, 0.16);
+                box-shadow: 0 8px 24px rgba(255, 122, 26, 0.08);
+            }
+            .stButton > button {
+                border-radius: 999px;
+                background: linear-gradient(90deg, var(--accent) 0%, #ff9e3d 100%);
+                color: white;
+                border: none;
+                padding: 0.6rem 1.2rem;
+            }
+            .stButton > button:hover {
+                border: none;
+                background: linear-gradient(90deg, var(--accent-dark) 0%, #ff8e2b 100%);
+            }
+            .stFileUploader > div {
+                border: 2px dashed #ffb36b;
+                border-radius: 16px;
+                background: rgba(255, 250, 245, 0.9);
+            }
+            div[data-testid="stMetric"] {
+                background: white;
+                border-radius: 16px;
+                border: 1px solid rgba(255, 122, 26, 0.16);
+                padding: 0.65rem 0.8rem;
+            }
+        </style>
+        """,
+        unsafe_allow_html=True,
+    )
+
+
 def load_config() -> dict:
     """Load and validate the settings produced by the Colab notebook."""
     if not CONFIG_PATH.exists():
@@ -73,30 +139,63 @@ def main() -> None:
         layout="centered",
     )
 
-    st.title("Fresh or Rotten Orange?")
-    st.caption("GET 324 Laboratory Exercise 10 · Group ME11")
-    st.write(
-        "Upload a clear colour photograph containing one orange, then press "
-        "the prediction button to estimate whether it is fresh or rotten."
-    )
-    st.info(
-        "This binary classifier is intended only for orange images. Pictures "
-        "of people, objects, other fruits or unclear scenes are outside its "
-        "training task and must not be treated as reliable predictions."
+    render_custom_css()
+
+    st.markdown(
+        """
+        <div class="hero-card">
+            <div style="display:flex; align-items:center; gap:0.8rem; flex-wrap:wrap;">
+                <span style="font-size: 2rem;">🍊</span>
+                <div>
+                    <h1 style="margin:0 0 0.2rem 0; font-size: 2rem;">Fresh or Rotten Orange?</h1>
+                    <p style="margin:0; opacity:0.95;">A bright, modern interface for spotting orange freshness in seconds.</p>
+                </div>
+            </div>
+        </div>
+        """,
+        unsafe_allow_html=True,
     )
 
-    with st.expander("How the application works"):
-        st.write(
-            "A MobileNetV3Small transfer-learning model extracts visual "
-            "features from the uploaded image. Its binary output is converted "
-            "into fresh-orange and rotten-orange probabilities using the "
-            "decision threshold selected with validation data."
+    intro_col, tip_col = st.columns([1.55, 1.0], gap="large")
+
+    with intro_col:
+        st.markdown(
+            """
+            <div class="panel">
+                <h3 style="margin-top:0; color:#cc4f00;">What this experience does</h3>
+                <p style="margin-bottom:0; color:#5e3500;">
+                    Upload a clear photo of a single orange and let the classifier estimate whether it looks fresh or rotten.
+                    The experience is designed to feel calm, guided and visually clear from the first click.
+                </p>
+            </div>
+            """,a
+            unsafe_allow_html=True,
         )
-        st.write(
-            "A low-confidence result is rejected as uncertain. This improves "
-            "safety but cannot guarantee that every unrelated image will be "
-            "detected, because confidence is not proof that an orange is present."
+
+    with tip_col:
+        st.markdown(
+            """
+            <div class="panel">
+                <h3 style="margin-top:0; color:#cc4f00;">Quick guidance</h3>
+                <ul style="padding-left: 1rem; color:#5e3500; margin-bottom:0;">
+                    <li>Use a sharp, well-lit photo.</li>
+                    <li>Keep the orange as the main subject.</li>
+                    <li>Low-confidence results are flagged for review.</li>
+                </ul>
+            </div>
+            """,
+            unsafe_allow_html=True,
         )
+
+    st.markdown(
+        """
+        <div class="panel">
+            <h3 style="margin-top:0; color:#cc4f00;">Upload an orange image</h3>
+            <p style="margin-top:0; color:#5e3500;">Choose a JPG, JPEG, PNG or WEBP file to begin.</p>
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
 
     uploaded_file = st.file_uploader(
         "Choose an orange image",
@@ -145,6 +244,23 @@ def main() -> None:
     fresh_probability = 1.0 - rotten_probability
     minimum_confidence = float(config.get("minimum_confidence", 0.75))
 
+    result_icon = "✅" if label == "fresh_orange" else "⚠️"
+    result_title = (
+        f"{result_icon} Fresh Orange"
+        if label == "fresh_orange"
+        else f"{result_icon} Rotten Orange"
+    )
+
+    st.markdown(
+        f"""
+        <div class="result-card">
+            <h3 style="margin:0 0 0.25rem 0; color:#cc4f00;">{result_title}</h3>
+            <p style="margin:0; color:#5e3500;">The model evaluated your image with a confidence score of {confidence * 100:.2f}%.</p>
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
+
     if confidence < minimum_confidence:
         st.warning(
             "The result is uncertain. Upload a clearer, closer photograph of "
@@ -152,7 +268,7 @@ def main() -> None:
         )
         st.metric("Highest model score", f"{confidence * 100:.2f}%")
     else:
-        st.success(f"Prediction: {display_label(label)}")
+        st.success("Prediction is ready for review.")
         st.metric("Model confidence", f"{confidence * 100:.2f}%")
         st.progress(int(round(confidence * 100)))
 
