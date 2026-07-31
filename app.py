@@ -78,7 +78,7 @@ def render_custom_css() -> None:
                 background: rgba(255, 250, 245, 0.9);
             }
             div[data-testid="stMetric"] {
-                background: white;
+                background: orange;
                 border-radius: 16px;
                 border: 1px solid rgba(255, 122, 26, 0.16);
                 padding: 0.65rem 0.8rem;
