@@ -195,5 +195,5 @@ Table with member who participated.
 | Anietie, Fortune Ekong| 22/EG/ME/1725| anietiefortune03-oss | code preview |
 | Thompson, Paul Sunday| 22/EG/ME/1825| pauldeapostle | code Review  |
 | Francis Edwin Edwin| 22/EG/ME/1775| Francisedwin784-sketch | code review  |
-
+| Christian Emmanuel Elisha| 22/EG/ME/1715| eelisha116-beep | code preview  |
 
