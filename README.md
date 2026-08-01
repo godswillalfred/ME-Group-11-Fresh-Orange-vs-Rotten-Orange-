@@ -1,4 +1,4 @@
-# GET 324 Group ME11: Fresh versus Rotten Orange Classifie
+# GET 324 Group ME11: Fresh versus Rotten Orange Classifier
 
 This project completes Laboratory Exercise 10 by training, evaluating and
 deploying a binary image-classification model. The application accepts an
